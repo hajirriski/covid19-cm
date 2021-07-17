@@ -1,0 +1,109 @@
+.main-menu {
+  float: right;
+  padding-left: 10px;
+  width: 85px;
+  height: 50px;
+  margin-right: 100px;
+  margin-top: 15px;
+}
+
+.main-menu li {
+  display: inline-block;
+  line-height: 25px;
+  position: relative;
+}
+
+.main-menu li a {
+  font-size: 13px;
+  width: 75px;
+  height: 25px;
+  padding-left: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 700;
+  color: #fff;
+  border: 2px solid transparent;
+  transition: all 0.5s;
+  text-align: center;
+}
+
+.main-menu li.has-submenu a:after {
+  content: '\f107';
+  font-family: "FontAwesome";
+  margin-left: 5px;
+}
+
+.main-menu li.has-submenu ul li a:after {
+  display: none;
+}
+
+.main-menu li .sub-menu {
+  position: absolute;
+  background-color: #18233a;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.5s;
+  border-radius: 5px;
+}
+
+.main-menu li:hover .sub-menu {
+  opacity: 1;
+  visibility: visible;
+}
+
+.main-menu li .sub-menu li {
+  display: block;
+  line-height: 20px;
+  margin-left: 0px;
+  margin-bottom: 15px;
+  padding-bottom: 1px;
+  border-bottom: 1px solid #121b2f;
+}
+
+.main-menu li .sub-menu li:first-child {
+  padding-top: 15px;
+}
+
+.main-menu li .sub-menu li:last-child {
+  margin-bottom: 0px;
+  border-bottom: none;
+}
+
+.main-menu li .sub-menu li a {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  border: none;
+  transition: all 0.5s;
+  height: 10px;
+}
+
+.main-menu li .sub-menu li a:hover {
+  color: #fff;
+  height: 15px;
+  border: none;
+}
+
+@media screen and (max-width: 950px) {
+  .main-menu { padding-right: 0!important; }
+  .main-header .logo {
+    line-height: 73px;
+  }
+  .main-menu li {
+    display: block;
+    line-height: 1;
+    margin-left: 0 !important;
+  }
+
+  .main-menu li .sub-menu {
+    opacity: 1;
+    visibility: visible;
+    position: static;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+  }
+  .main-menu li .sub-menu li:last-child {
+    border-bottom: 1px solid rgba(250,250,250,0.25);
+  }
+}
