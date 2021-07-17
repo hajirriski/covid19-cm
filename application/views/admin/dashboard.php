@@ -7,6 +7,34 @@ if ($_SESSION['aid'] == "") {
   <button type='button' onclick=location.href='index'>Back</button>");
 }
 include "konek.php";
+
+//Total tests
+$query=mysqli_query($koneksi,"select id from tb_testrecord");
+$totalcek=mysqli_num_rows($query);
+//Assigned tests
+$query1=mysqli_query($koneksi,"select id from tb_testrecord where StatusLaporan='Assigned'");
+$totalditugaskan=mysqli_num_rows($query1);
+//On the way for sample collection
+$query2=mysqli_query($koneksi,"select id from tb_testrecord where StatusLaporan='On the Way for Collection'");
+$totalontheway=mysqli_num_rows($query2);
+//Sample Collected
+$query3=mysqli_query($koneksi,"select id from tb_testrecord where StatusLaporan='Sample Collected'");
+$totalsampeldikumpulkan=mysqli_num_rows($query3);
+//Sent for lab
+$query4=mysqli_query($koneksi,"select id from tb_testrecord where StatusLaporan='Sent to Lab'");
+$totaldikirimkelab=mysqli_num_rows($query4);
+
+//Report Delivered
+$query5=mysqli_query($koneksi,"select id from tb_testrecord where StatusLaporan='Delivered'");
+$totalterkirim=mysqli_num_rows($query5);
+
+//Totall Registered Patients 
+$query6=mysqli_query($koneksi,"select id from tb_pasien");
+$totalpasien=mysqli_num_rows($query6); 
+
+//Totall Registered Phlebotomist 
+$query7=mysqli_query($koneksi,"select id from tb_paramedis");
+$totalparamedis=mysqli_num_rows($query7);
 ?>
 
 <!DOCTYPE html>
@@ -62,7 +90,7 @@ include "konek.php";
     </header>
     <div class="card" style="margin-top: -25px; z-index: 99">
       <div class="card-header">
-        <h2>Ini Dashboard</h2>
+        <h2>Dashboard</h2>
       </div>
       <div>
         <div class="card-body">
@@ -78,7 +106,7 @@ include "konek.php";
                             <i class="fas fa-virus"></i>
                             <h2><a href="<?= base_url() ?>admin/semualaporan">Total Cek</a></h2>
                             <br><br>
-                            <a>7</a>
+                            <a><?php echo $totalcek;?></a>
                           </div>
                         </div>
                       </th>
@@ -88,7 +116,7 @@ include "konek.php";
                             <i class="fas fa-virus"></i>
                             <h2><a href="<?= base_url() ?>admin/cekditugaskan">Total Ditugaskan</a></h2>
                             <br><br>
-                            <h2>3</h2>
+                            <a><?php echo $totalditugaskan;?></a>
                           </div>
                         </div>
                       </th>
@@ -98,7 +126,7 @@ include "konek.php";
                             <i class="fas fa-virus"></i>
                             <h2><a href="<?= base_url() ?>admin/cekprosespengumpulan">Proses Pengumpulan</a></h2>
                             <br><br>
-                            <a>3</a>
+                            <a><?php echo $totalontheway;?></a>
                           </div>
                         </div>
                       </th>
@@ -108,7 +136,7 @@ include "konek.php";
                             <i class="fas fa-virus"></i>
                             <h2><a href="<?= base_url() ?>admin/cekdikumpulkan">Sampel Dikumpulkan</a></h2>
                             <br><br>
-                            <a>3</a>
+                            <a><?php echo $totalsampeldikumpulkan;?></a>
                           </div>
                         </div>
                       </th>
@@ -122,7 +150,7 @@ include "konek.php";
                             <i class="fas fa-virus"></i>
                             <h2><a href="<?= base_url() ?>admin/cekdikirimkelab">Dikirim ke Lab</a></h2>
                             <br><br>
-                            <h2>3</h2>
+                            <a><?php echo $totaldikirimkelab;?></a>
                           </div>
                         </div>
                       </th>
@@ -132,7 +160,7 @@ include "konek.php";
                             <i class="fas fa-virus"></i>
                             <h2><a href="<?= base_url() ?>admin/cekterkirim">Laporan Terkirim</a></h2>
                             <br><br>
-                            <h2>3</h2>
+                            <a><?php echo $totalterkirim;?></a>
                           </div>
                         </div>
                       </th>
@@ -142,7 +170,7 @@ include "konek.php";
                             <i class="fas fa-virus"></i>
                             <h2>Total Registrasi Pasien</h2>
                             <br><br>
-                            <h2>3</h2>
+                            <a><?php echo $totalpasien;?></a>
                           </div>
                         </div>
                       </th>
@@ -152,7 +180,7 @@ include "konek.php";
                             <i class="fas fa-virus"></i>
                             <h2><a href="<?= base_url() ?>admin/kelolaparamedis">Total Registrasi Paramedis</a></h2>
                             <br><br>
-                            <h2>3</h2>
+                            <a><?php echo $totalparamedis;?></a>
                           </div>
                         </div>
                       </th>

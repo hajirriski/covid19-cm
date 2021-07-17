@@ -16,8 +16,8 @@ if ($_SESSION['aid'] == "") {
 
     $query = mysqli_query($koneksi, "update tb_admin set AdminName='$aname', MobileNumber ='$mobno', Email= '$email' where ID='$adminid'");
     if ($query) {
-
       echo '<script>alert("Profile has been updated")</script>';
+      echo "<script>window.location.href='dashboard'</script>";
     } else {
       echo '<script>alert("Something Went Wrong. Please try again.")</script>';
     }
@@ -110,7 +110,7 @@ if ($_SESSION['aid'] == "") {
               <input type="text" class="form-control" name="mobilenumber" value="<?php echo $row['MobileNumber']; ?>" required='true'>
             <?php } ?>
             <div class="form-group">
-              <input type="submit" class="button bg-primary mb-3" name="submit" id="submit">
+              <input type="submit" class="button bg-primary mb-3" name="update" id="submit">
             </div>
         </form>
       </div>
